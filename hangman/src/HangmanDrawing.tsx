@@ -6,7 +6,7 @@ const HEAD = (
         borderRadius: "100%",
         border: "10px solid black",
         position: "absolute",
-        top: "50px",
+        top: "30px",
         right: "-30px",
       }}
     />
@@ -16,10 +16,10 @@ const HEAD = (
     <div
       style={{
         width: "10px",
-        height: "100px",
+        height: "70px",
         background: "black",
         position: "absolute",
-        top: "120px",
+        top: "90px",
         right: 0,
       }}
     />
@@ -28,12 +28,12 @@ const HEAD = (
   const RIGHT_ARM = (
     <div
       style={{
-        width: "100px",
+        width: "50px",
         height: "10px",
         background: "black",
         position: "absolute",
-        top: "150px",
-        right: "-100px",
+        top: "120px",
+        right: "-50px",
         rotate: "-30deg",
         transformOrigin: "left bottom",
       }}
@@ -43,11 +43,11 @@ const HEAD = (
   const LEFT_ARM = (
     <div
       style={{
-        width: "100px",
+        width: "50px",
         height: "10px",
         background: "black",
         position: "absolute",
-        top: "150px",
+        top: "120px",
         right: "10px",
         rotate: "30deg",
         transformOrigin: "right bottom",
@@ -58,12 +58,12 @@ const HEAD = (
   const RIGHT_LEG = (
     <div
       style={{
-        width: "100px",
+        width: "50px",
         height: "10px",
         background: "black",
         position: "absolute",
-        top: "210px",
-        right: "-90px",
+        top: "150px",
+        right: "-40px",
         rotate: "60deg",
         transformOrigin: "left bottom",
       }}
@@ -73,11 +73,11 @@ const HEAD = (
   const LEFT_LEG = (
     <div
       style={{
-        width: "100px",
+        width: "50px",
         height: "10px",
         background: "black",
         position: "absolute",
-        top: "210px",
+        top: "150px",
         right: 0,
         rotate: "-60deg",
         transformOrigin: "right bottom",
@@ -93,7 +93,7 @@ const HangmanDrawing = () => {
         {BODY_PARTS}
         <div
         style={{
-          height: "50px",
+          height: "30px",
           width: "10px",
           background: "black",
           position: "absolute",
@@ -111,7 +111,7 @@ const HangmanDrawing = () => {
       />
        <div
         style={{
-          height: "400px",
+          height: "250px",
           width: "10px",
           background: "black",
           marginLeft: "120px",
