@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import words from "./wordList.json"
 import HangmanDrawing from './HangmanDrawing'
 import HangmanWord from './HangmanWord'
@@ -11,7 +11,35 @@ const App = () => {
 
   const [guessedLetters, setGuessedLetters] = useState<string[]>([])
 
-  const incorrectLetter = guessedLetters.filter(letter=>!wordToGuess.includes(letter))
+  const incorrectLetters = guessedLetters.filter(letter=>!wordToGuess.includes(letter))
+
+const addGuessedLetter  = useCallback(
+  (letter:string) => {
+    if(guessedLetters.includes(letter))return
+    setGuessedLetters(currentLetters =>[...currentLetters, letter])
+  },[guessedLetters]
+)
+
+
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent)=>{
+const key = e.key
+
+if(!key.match(/^[a-z]$/))return
+console.log(key)
+e.preventDefault()
+addGuessedLetter(key)
+}
+    
+  
+    document.addEventListener("keypress", handler)
+    return () => {
+      document.removeEventListener("keypress", handler)
+    }
+  }, [guessedLetters])
+  
+
   console.log(wordToGuess)
   return (
     <div 
@@ -30,11 +58,14 @@ const App = () => {
         {isLoser && "Nice Try - Refresh to try again"} */}
         win
       </div>
-      <HangmanDrawing numberOfGuesses={incorrectLetter.length}/>
+      <HangmanDrawing numberOfGuesses={incorrectLetters.length}/>
       <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess}/>
       <div style={{alignSelf:'stretch'}}>
-      <Keyboard /></div>
-  </div>
+      <Keyboard activeLetters={guessedLetters.filter((letter)=>wordToGuess.includes(letter))}
+      inactiveLetters={incorrectLetters}
+      addGuessedLetter={addGuessedLetter}/>
+      </div>
+  </div>  
   )
 }
 
