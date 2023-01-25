@@ -87,13 +87,17 @@ const HEAD = (
   
   const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG]
 
-const HangmanDrawing = () => {
+  type HangmanDrawingProps = {
+    numberOfGuesses:number
+  }
+
+const HangmanDrawing = ({numberOfGuesses}:HangmanDrawingProps) => {
   return (
     <div style={{ position: "relative" }}>
-        {BODY_PARTS}
+        {BODY_PARTS.slice(0, numberOfGuesses)}
         <div
         style={{
-          height: "30px",
+          height: "30px", 
           width: "10px",
           background: "black",
           position: "absolute",
