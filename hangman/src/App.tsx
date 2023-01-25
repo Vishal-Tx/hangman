@@ -13,6 +13,9 @@ const App = () => {
 
   const incorrectLetters = guessedLetters.filter(letter=>!wordToGuess.includes(letter))
 
+  const isLose = incorrectLetters.length>=6
+  const isWinner = wordToGuess.split("").every(letter =>guessedLetters.includes(letter))
+
 const addGuessedLetter  = useCallback(
   (letter:string) => {
     if(guessedLetters.includes(letter))return

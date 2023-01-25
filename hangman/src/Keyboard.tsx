@@ -42,7 +42,9 @@ const Keyboard = ({inactiveLetters,activeLetters,addGuessedLetter}:KeyboardProps
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
         gap: ".5rem",
-      }}>{KEYS.map(key=><button  onClick={()=>addGuessedLetter(key)} className={`${styles.btn}`} key={key}>{key}</button>)}</div>
+      }}>{KEYS.map(key=>{ const isActive =activeLetters.includes(key)
+        const isInActive = inactiveLetters.includes(key)
+        return(<button disabled={isActive||isInActive} onClick={()=>addGuessedLetter(key)} className={`${styles.btn} ${isActive?styles.active:""}${isInActive?styles.inactive:""}`} key={key}>{key}</button>)})}</div>
   )
 }
 
