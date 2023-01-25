@@ -31,7 +31,7 @@ const App = () => {
         win
       </div>
       <HangmanDrawing numberOfGuesses={incorrectLetter.length}/>
-      <HangmanWord />
+      <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess}/>
       <div style={{alignSelf:'stretch'}}>
       <Keyboard /></div>
   </div>
